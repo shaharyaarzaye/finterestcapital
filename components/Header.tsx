@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 const Logo: React.FC = () => (
     <div className="flex items-center gap-2">
         <img 
@@ -22,7 +22,37 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ["Home", "Research", "PMS", "Investment Banking", "Investor Relations", "About", "Contact"];
+  const navLiknks = ["Home" , "Research", "PMS", "Investment Banking", "Investor Relations", "About", "Contact"];
+  const navLinks = [
+    {
+        "Text" : "Home",
+        "src" : '/' 
+},
+    {
+        "Text" : "Research",
+        "src" : '/research' 
+},
+    {
+        "Text" : "PMS",
+        "src" : '/pms' 
+},
+    {
+        "Text" : "Investment Banking",
+        "src" : '/investmentbanking' 
+},
+    {
+        "Text" : "Investor Relations",
+        "src" : '/investorrelations' 
+},
+    {
+        "Text" : "About",
+        "src" : '/about' 
+},
+    {
+        "Text" : "Contact",
+        "src" : '/contact' 
+}
+];
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-sm shadow-md' : 'bg-white'}`}>
@@ -31,9 +61,9 @@ const Header: React.FC = () => {
           <Logo />
           <nav className="hidden lg:flex items-center space-x-6">
             {navLinks.map(link => (
-              <a key={link} href="#" className="text-gray-600 hover:text-brand-orange transition-colors duration-200 font-medium">
-                {link}
-              </a>
+              <Link key={link.src} to={link.src} className="text-gray-600 hover:text-brand-orange transition-colors duration-200 font-medium">
+                {link.Text}
+              </Link>
             ))}
           </nav>
           <a href="#" className="hidden lg:inline-block bg-brand-dark text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
