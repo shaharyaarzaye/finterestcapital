@@ -13,7 +13,7 @@ const PricingCard = ({ plan, price, description, features, highlighted = false }
         <a href="#" className={`w-full text-center font-semibold py-3 rounded-lg border-2 transition-colors duration-300 ${highlighted ? 'bg-brand-orange border-brand-orange text-white hover:bg-brand-orange-dark hover:border-brand-orange-dark' : 'bg-transparent border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white'}`}>
             Learn More
         </a>
-        <ul className="mt-8 space-y-4 text-sm text-gray-600 flex-grow">
+        <ul className="mt-8 space-y-4 text-sm text-gray-600 grow">
             {features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
                     <CheckIcon />

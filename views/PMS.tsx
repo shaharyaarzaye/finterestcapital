@@ -1,13 +1,16 @@
 import React from 'react';
 
-// FIX: Added explicit types for props to resolve TypeScript errors.
-
-
 const PMS: React.FC = () => {
-
-    return (
-        <div className="text-center text-3xl">coming soon</div>
-    );
+  return (
+    <div className="flex flex-col items-center pt-50 h-screen bg-gradient-to-br from-blue-50 to-indigo-100 text-center">
+      <h1 className="text-6xl font-extrabold text-orange-950 drop-shadow-sm">
+        Coming Soon
+      </h1>
+      <p className="mt-4 text-lg text-gray-600">
+        We’re working hard to bring you something amazing.
+      </p>
+    </div>
+  );
 };
 
 export default PMS;
