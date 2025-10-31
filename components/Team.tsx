@@ -24,7 +24,7 @@ const TeamMemberCard = ({ name, title, imgSrc }: TeamMemberCardProps) => (
 const Team: React.FC = () => {
     const team: TeamMemberCardProps[] = [ // Added type annotation for the team array for extra safety
         { name: "Aryan Oswal", title: "Technical Analyst", imgSrc: "/aryan.jpeg" },
-        { name: "Alexander Alpha", title: "Senior Analyst", imgSrc: "/alexender.jpeg" },
+        { name: "Darshil Pandya", title: "Senior Analyst", imgSrc: "/alexender.jpeg" },
         { name: "Dhvij Patel", title: "Analyst", imgSrc: "/dhvij.jpeg" },
     ];
     
