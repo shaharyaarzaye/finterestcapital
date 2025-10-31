@@ -13,6 +13,7 @@ import Quote from "../components/Quote";
 import Blog from "../components/Blog";
 import Contact from "../components/Contact";
 
+
 function Home() {
   return (
     <div className="bg-white text-brand-text overflow-x-hidden relative">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PMS: React.FC = () => {
+const Microcap: React.FC = () => {
   return (
     <div className="flex flex-col items-center pt-50 h-screen bg-linear-to-br from-blue-50 to-indigo-100 text-center">
       <h1 className="text-6xl font-extrabold text-orange-950 drop-shadow-sm">
@@ -13,4 +13,4 @@ const PMS: React.FC = () => {
   );
 };
 
-export default PMS;
+export default Microcap;

@@ -20,7 +20,7 @@ const GlobalPresence: React.FC = () => {
                     We know how to manage business globally
                 </h2>
                 <div className="flex justify-center mb-16">
-                    <img src="/worldmap.png" alt="World Map" className="max-w-4xl w-full opacity-60"/>
+                    <img src="/MapChart_Map.png" alt="World Map" className="max-w-4xl w-full opacity-60"/>
                 </div>
                  <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
                     <PresenceItem title="Managing wealth beyond borders" icon={<svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11,6 +11,9 @@ import {ContactPage} from './views/ContactPage'
 import PMS from './views/PMS';
 import {AboutUsPage} from './views/AboutUsPage';
 import Home from './views/Home';
+import Core from './views/Core';
+import Momentum from './views/Momentum';
+import Microcap from './views/Microcap';
 
 const App: React.FC = () => {
   const [chatOpen, setChatOpen] = useState(false);
@@ -76,6 +79,9 @@ const App: React.FC = () => {
           <Route path="/pms" element={<PMS />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/research/core" element={<Core />} />
+          <Route path="/research/momentum" element={<Momentum />} />
+          <Route path="/research/microcap" element={<Microcap />} />
         </Routes>
       </div>
     </Router>
