@@ -44,10 +44,24 @@ const Header: React.FC = () => {
   ];
 
   const researchDropdown = [
-    { Text: 'Core', src: '/research/core' },
-    { Text: 'Momentum', src: '/research/momentum' },
-    { Text: 'Microcap', src: '/research/microcap' },
+    { Text: 'Core', hash: '#core' },
+    { Text: 'Momentum', hash: '#momentum' },
+    { Text: 'Microcap', hash: '#microcap' },
   ];
+
+  const scrollToSection = (hash: string) => {
+    setIsResearchOpen(false);
+    if (window.location.pathname === '/research') {
+      // If already on the research page, scroll to the section
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If not on the research page, navigate to the research page with the hash
+      window.location.href = `/research${hash}`;
+    }
+  };
 
   return (
     <header
@@ -95,14 +109,17 @@ const Header: React.FC = () => {
                   className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50"
                 >
                   {researchDropdown.map((item) => (
-                    <Link
-                      key={item.src}
-                      to={item.src}
-                      onClick={() => setIsResearchOpen(false)}
+                    <a
+                      key={item.hash}
+                      href={`/research${item.hash}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(item.hash);
+                      }}
                       className="block px-4 py-2 text-gray-700 hover:bg-brand-orange hover:text-white transition-colors duration-200"
                     >
                       {item.Text}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               )}
