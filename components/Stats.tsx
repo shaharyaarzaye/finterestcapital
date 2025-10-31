@@ -2,7 +2,7 @@ import React from 'react';
 
 // FIX: Added explicit types for props to resolve TypeScript errors.
 const StatItem = ({ value, label, icon }: { value: string, label: string, icon: React.ReactNode }) => (
-    <div className="flex flex-col h-55 items-center gap-6 p-6 bg-white rounded-lg shadow-lg reveal">
+    <div className="border border-gray-300 py-10 flex flex-col justify-center  items-center gap-6 p-6 reveal">
         <div>{icon}</div>
         <div >
             <p className="text-4xl text-center font-bold text-brand-dark">{value}</p>
@@ -20,9 +20,9 @@ const Stats: React.FC = () => {
     ];
 
     return (
-        <section className="py-20 bg-brand-gray ">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal">
+        <section className="py-10  ">
+            <div className="  mx-auto px-4 sm:px-6 lg:px-8">
+                <div className=" grid sm:grid-cols-2 lg:grid-cols-4  reveal">
                     {statsData.map((stat, index) => (
                         <StatItem  {...stat} />
                     ))}
