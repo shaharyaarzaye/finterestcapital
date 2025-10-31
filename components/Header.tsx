@@ -4,7 +4,7 @@ const Logo: React.FC = () => (
     <div className="flex items-center gap-2">
         <img 
             src="/logo-dark.png" 
-            className="h-14 rounded-md flex items-center justify-center font-bold text-white text-2xl p-1 flex-shrink-0" 
+            className="h-14 rounded-md flex items-center justify-center font-bold text-white text-2xl p-1 shrink-0" 
         />
         {/* <span className="font-bold text-xl text-brand-dark">FINTEREST CAPITAL</span> */}
     </div>

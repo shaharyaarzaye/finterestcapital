@@ -1,26 +1,16 @@
 import React, { useState } from 'react';
 import { FaWhatsapp, FaCommentDots, FaTimes } from 'react-icons/fa';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import "./app.css"
 
 import TopBar from './components/TopBar';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Vision from './components/Vision';
-import Services from './components/Services';
-import WhyChooseUs from './components/WhyChooseUs';
-import Pricing from './components/Pricing';
-import GlobalPresence from './components/GlobalPresence';
-import Stats from './components/Stats';
-import Team from './components/Team';
-import Testimonial from './components/Testimonial';
-import Quote from './components/Quote';
-import Blog from './components/Blog';
-import Contact from './components/Contact';
+
 import {ContactPage} from './views/ContactPage'
-import Footer from './components/Footer';
 
 import PMS from './views/PMS';
 import {AboutUsPage} from './views/AboutUsPage';
+import Home from './views/Home';
 
 const App: React.FC = () => {
   const [chatOpen, setChatOpen] = useState(false);
@@ -80,38 +70,10 @@ const App: React.FC = () => {
           </div>
         )}
 
-        {/* Routes */}
-        <Routes>
-          {/* Home Route */}
-          <Route
-            path="/"
-            element={
-              <main>
-                <Hero />
-                <Vision />
-                <Services />
-                <WhyChooseUs />
-                <Pricing />
-                <GlobalPresence />
-                <Stats />
-                <Team />
-                <Testimonial />
-                <Quote />
-                <Blog />
-                <Contact />
-              </main>
-            }
-          />
-
-          {/* PMP Page Route */}
-          <Route path="/pms" element={<PMS />} />
-
-          {/* Optional: Catch-all for 404 */}
-          {/* <Route path="*" element={<NotFound />} /> */}
-        </Routes>
-
         {/* Footer - Only on Home (unless PMP has its own) */}
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pms" element={<PMS />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutUsPage />} />
         </Routes>
