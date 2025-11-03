@@ -60,7 +60,7 @@ const Button = ({ children, href, className = '' }: { children: React.ReactNode;
 const CoreInvestmentProduct = () => (
   <Section id="core" className="bg-linear-to-b from-orange-50 via-white to-orange-50 pt-32">
     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center mb-16">
-      <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">Momentum  PRODUCT</h1>
+      <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">MOMENTUM</h1>
       <div className="w-32 h-1 bg-linear-to-r from-transparent via-brand-orange to-transparent mx-auto mt-6"></div>
     </motion.div>
 
@@ -155,7 +155,7 @@ const CoreInvestmentProduct = () => (
             </tr>
           </tbody>
         </table>
-              <div className="p-6 bg-linear-to-r  from-brand-orange to-orange-600 -m-px rounded-b-2xl text-center">
+              <div className="p-6 rounded-b-2xl text-center">
           <Button href="#" className="text-lg px-8 mr-2 py-4">Download Broshure <Download className="ml-2 w-5 h-5" /></Button>
           <Button href="/contact" className="text-lg px-8 py-4">Get Started Now <ArrowUpRight className="ml-2 w-5 h-5" /></Button>
         </div>

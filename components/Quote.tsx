@@ -23,7 +23,7 @@ const Quote: React.FC = () => {
                         </form>
                     </div>
                     <div className="reveal hidden lg:block">
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2835&auto=format&fit=crop" alt="Happy clients" className="rounded-2xl w-full h-full object-cover shadow-xl"/>
+                        <img src="/appointment.jpeg" alt="Happy clients" className="rounded-2xl w-full h-full object-cover shadow-xl"/>
                     </div>
                 </div>
             </div>
