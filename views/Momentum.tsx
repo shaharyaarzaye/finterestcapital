@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import  Footer from '../components/Footer'
 import {
-  Check, ArrowUpRight, Phone, Mail, MapPin, Menu, ChevronRight, Star as StarIcon,
+  Check, ArrowUpRight , Download, Phone, Mail, MapPin, Menu, ChevronRight, Star as StarIcon,
   TrendingUp, DollarSign, Shield, Zap, BarChart3, Target, AlertTriangle,
   Package, AlertCircle, Network, ArrowRight, User, Box, Rocket, Tag, CalendarCheck
 } from 'lucide-react';
@@ -46,12 +46,11 @@ const Card = ({ children, className = '' }: { children: React.ReactNode; classNa
 const Button = ({ children, href, className = '' }: { children: React.ReactNode; href: string; className?: string }) => (
   <RouterLink
     to={href}
-    className={`inline-flex items-center bg-brand-orange text-white px-6 py-3 rounded-full font-medium hover:bg-orange-700 transition-all hover:shadow-lg ${className}`}
+    className={`inline-flex items-center border-2 border-orange-600 text-gray-600 px-6 py-3 rounded-full font-medium hover:bg-orange-600  transition-transform hover:shadow-lg hover:text-white  ${className}`}
   >
     {children}
   </RouterLink>
 );
-
 // ---------------------------------------------------------------
 // Header with Real Bull Logo
 
@@ -156,7 +155,8 @@ const CoreInvestmentProduct = () => (
             </tr>
           </tbody>
         </table>
-        <div className="p-6 bg-linear-to-r from-brand-orange to-orange-600 -m-px rounded-b-2xl text-center">
+              <div className="p-6 bg-linear-to-r  from-brand-orange to-orange-600 -m-px rounded-b-2xl text-center">
+          <Button href="#" className="text-lg px-8 mr-2 py-4">Download Broshure <Download className="ml-2 w-5 h-5" /></Button>
           <Button href="/contact" className="text-lg px-8 py-4">Get Started Now <ArrowUpRight className="ml-2 w-5 h-5" /></Button>
         </div>
       </Card>

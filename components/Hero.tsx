@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Slide {
   tagline?: string;
@@ -7,35 +9,27 @@ interface Slide {
   subtitle: string;
 }
 
-// Shared background image (same for all slides)
 const BACKGROUND_IMAGE =
   'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop';
 
-const slides = [
-  // === SLIDE 1: Original (unchanged) ===
+const slides: Slide[] = [
   {
     tagline: 'WELCOME! START GROWING YOUR BUSINESS TODAY',
     title: 'Impressive Solutions<br />Crafted for Your Goal',
     subtitle:
       'We specialize in delivering impressive, results-driven solutions tailored to your unique goals. Whether you\'re scaling a startup.',
   },
-
-  // === SLIDE 2: Part 1 ===
   {
     tagline: 'INVEST SMARTER • GROW FASTER',
     title: 'Unlock Wealth with Precision & Performance',
     subtitle:
       'Empowering Ambitious Investors to Create Real Wealth, The Smarter Way. Driven by deep research, market foresight, and proven strategies, Finterest Capital is where tomorrow’s leaders invest today. Our unique approach blends momentum, value, and discovery to seize opportunities others miss—delivering compound growth and capital safety.',
   },
-
-  // === SLIDE 3: Part 2 (No heading → "Content Needed") ===
   {
     title: 'Content Needed',
     subtitle:
       'With every move backed by forensic analytics and decades of domain expertise, we don’t just help you grow wealth—we help you build a legacy.',
   },
-
-  // === SLIDE 4: Part 3 (No heading → "Content Needed") ===
   {
     title: 'Content Needed',
     subtitle:
@@ -50,7 +44,6 @@ const ChevronLeft = () => (
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
-    aria-hidden="true"
   >
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
   </svg>
@@ -63,35 +56,55 @@ const ChevronRight = () => (
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
-    aria-hidden="true"
   >
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
   </svg>
 );
 
-interface HeroProps {
-  autoPlay?: number;
-}
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-const fadeInright = {
-  hidden: { opacity: 0, x: 40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+/* -------------------------------------------------
+   Horizontal slide – slower spring, no Y shift
+   ------------------------------------------------- */
+const slideVariants = {
+  enter: (dir: number) => ({
+    x: dir > 0 ? '100%' : '-100%',
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      x: { type: 'spring', stiffness: 180, damping: 30, duration: 0.8 },
+      opacity: { duration: 0.4 },
+    },
+  },
+  exit: (dir: number) => ({
+    x: dir < 0 ? '100%' : '-100%',
+    opacity: 0,
+    transition: {
+      x: { type: 'spring', stiffness: 180, damping: 30, duration: 0.8 },
+      opacity: { duration: 0.3 },
+    },
+  }),
 };
 
-export const Hero: React.FC<HeroProps> = ({ autoPlay = 7000 }) => {
+export const Hero: React.FC<{ autoPlay?: number }> = ({ autoPlay = 7000 }) => {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  const goPrev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
-  const goNext = () => setIndex((i) => (i + 1) % slides.length);
+  const goPrev = () => {
+    setDirection(-1);
+    setIndex((i) => (i - 1 + slides.length) % slides.length);
+  };
+  const goNext = () => {
+    setDirection(1);
+    setIndex((i) => (i + 1) % slides.length);
+  };
 
   useEffect(() => {
     if (!autoPlay) return;
     const id = setInterval(goNext, autoPlay);
     return () => clearInterval(id);
-  }, [autoPlay]);
+  }, [autoPlay, index]);
 
   const current = slides[index];
 
@@ -105,21 +118,41 @@ export const Hero: React.FC<HeroProps> = ({ autoPlay = 7000 }) => {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Content */}
-      <motion.div variants={fadeInUp} className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fadeIn">
-        {current.tagline && (
-          <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-gray-200">
-            {current?.tagline}
-          </p>
-        )}
-        <h1
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
-          dangerouslySetInnerHTML={{ __html: current.title }}
-        />
-        <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-          {current.subtitle}
-        </p>
-      </motion.div>
+      {/* Fixed container for absolute positioning */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4">
+        {/* Absolute container to prevent layout shift */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <AnimatePresence initial={false} custom={direction} mode="wait">
+            <motion.div
+              key={index}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              className="w-full text-center space-y-4"
+            >
+              {/* Tagline */}
+              {current.tagline && (
+                <p className="text-sm font-semibold uppercase tracking-widest text-gray-200">
+                  {current.tagline}
+                </p>
+              )}
+
+              {/* Title */}
+              <h1
+                className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white"
+                dangerouslySetInnerHTML={{ __html: current.title }}
+              />
+
+              {/* Subtitle */}
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+                {current.subtitle}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
 
       {/* Prev Button */}
       <button
@@ -139,12 +172,15 @@ export const Hero: React.FC<HeroProps> = ({ autoPlay = 7000 }) => {
         <ChevronRight />
       </button>
 
-      {/* Dots Indicator */}
+      {/* Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {slides.map((_, i) => (
           <button
             key={i}
-            onClick={() => setIndex(i)}
+            onClick={() => {
+              setDirection(i > index ? 1 : -1);
+              setIndex(i);
+            }}
             aria-label={`Go to slide ${i + 1}`}
             aria-current={i === index}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
@@ -156,18 +192,5 @@ export const Hero: React.FC<HeroProps> = ({ autoPlay = 7000 }) => {
     </section>
   );
 };
-// At the very bottom of Hero.tsx
-export default Hero;
-/* Fade-in Animation */
-const style = `
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
-`;
-if (typeof document !== 'undefined') {
-  const sheet = document.createElement('style');
-  sheet.innerHTML = style;
-  document.head.appendChild(sheet);
-}
+
+export default Hero;  

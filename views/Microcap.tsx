@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
-import  Footer from '../components/Footer'
+import Footer from '../components/Footer'
 import {
-  Check, ArrowUpRight, Phone, Mail, MapPin, Menu, ChevronRight, Star as StarIcon,
+  Check, ArrowUpRight, Download, Phone, Mail, MapPin, Menu, ChevronRight, Star as StarIcon,
   TrendingUp, DollarSign, Shield, Zap, BarChart3, Target, AlertTriangle,
   Package, AlertCircle, Network, ArrowRight, User, Box, Rocket, Tag, CalendarCheck
 } from 'lucide-react';
@@ -46,7 +46,7 @@ const Card = ({ children, className = '' }: { children: React.ReactNode; classNa
 const Button = ({ children, href, className = '' }: { children: React.ReactNode; href: string; className?: string }) => (
   <RouterLink
     to={href}
-    className={`inline-flex items-center bg-brand-orange text-white px-6 py-3 rounded-full font-medium hover:bg-orange-700 transition-all hover:shadow-lg ${className}`}
+    className={`inline-flex items-center border-2 border-orange-600 text-gray-600 px-6 py-3 rounded-full font-medium hover:bg-orange-600  transition-transform hover:shadow-lg hover:text-white  ${className}`}
   >
     {children}
   </RouterLink>
@@ -74,9 +74,9 @@ const CoreInvestmentProduct = () => (
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {[
-          { title: 'Value Investing', desc: 'It is a strategy where we buy the best businesses which are undervalued by the market participants or the value of a stock is set to expand looking at the upcoming growth triggers in near future.' },
-          { title: 'Momentum Investing', desc: 'It is a special strategy we combine with value investing where we buy businesses at the best price at the best time dictated by long term technical trends. We believe, long term sectoral technical breakouts give a direction to look at immediate compoundable sectors.', example: true },
-          { title: 'Capital Protection', desc: '“Return of Capital” is as important as “Return on Capital”. We lay more emphasis on the downside risk than the expected return.', highlight: true },
+          { title: 'Out of the box Investing ', desc: 'Catch those companies which are unheard and stay away from market limelight' },
+          { title: 'Minimise Risk', desc: 'Filter proven management background, earnings visibility and scalable business potential', example: true },
+          { title: 'Diversification', desc: 'Overall Coverage of all sectors with optimum allocation', highlight: true },
         ].map((item, i) => (
           <motion.div key={i} variants={fadeInUp} className={`relative bg-white rounded-3xl p-8 shadow-xl border ${item.highlight ? 'border-brand-orange' : 'border-gray-200'}`}>
             <div className="absolute -top-4 left-8 bg-brand-orange text-white px-4 py-1 rounded-full text-sm font-semibold">{item.title}</div>
@@ -157,6 +157,7 @@ const CoreInvestmentProduct = () => (
           </tbody>
         </table>
         <div className="p-6 bg-linear-to-r from-brand-orange to-orange-600 -m-px rounded-b-2xl text-center">
+          <Button href="#" className="text-lg px-8 mr-2 py-4">Download Broshure <Download className="ml-2 w-5 h-5" /></Button>
           <Button href="/contact" className="text-lg px-8 py-4">Get Started Now <ArrowUpRight className="ml-2 w-5 h-5" /></Button>
         </div>
       </Card>
@@ -190,7 +191,7 @@ const Microcap: React.FC = () => {
       <div className="bg-linear-to-b from-orange-50 to-white min-h-screen">
         <CoreInvestmentProduct />
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

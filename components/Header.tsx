@@ -122,7 +122,7 @@ const Header: React.FC = () => {
           </nav>
 
           <a
-            href="#"
+            href="https://finterestcapital.smallcase.com/"
             className="hidden lg:inline-block bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-800 transition-colors duration-300"
           >
             Small Case
