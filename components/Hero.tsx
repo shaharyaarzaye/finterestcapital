@@ -16,27 +16,27 @@ const BACKGROUND_IMAGE =
 const slides: Slide[] = [
   {
     title: 'Built on research,<br/> Driven by conviction.',
-    src: 'Crousel-img/Image.png',
+    src: 'Crousel-img/image.png',
     subtitle:
       'Welcome to Finterest Capital',
   },
   {
     title: 'Insight Begins with Research.',
-        src: 'Crousel-img/Image2.jpeg',
+        src: 'Crousel-img/image1.jpg',
 
     subtitle:
       'We study businesses in depth — their numbers, management, and industry dynamics — to uncover clarity where most see complexity. Every idea starts with understanding.',
   },
   {
     title: 'Strategy that Stays Ahead.',
-        src: 'Crousel-img/Image1.jpeg',
+        src: 'Crousel-img/image2.jpg',
 
     subtitle:
       'We combine valuation awareness, earnings triggers, and disciplined allocation to build strategies that adapt through cycles and create long-term advantage.',
   },
   {
     title: ' Wealth Built on Conviction.',
-        src: 'Crousel-img/Image3.jpeg',
+        src: 'Crousel-img/image3.jpg',
 
     subtitle:
       'Our portfolios reflect belief backed by research. Steady compounding, smart risk-taking, and clear execution — that’s how conviction turns into wealth.',
@@ -119,7 +119,7 @@ export const Hero: React.FC<{ autoPlay?: number }> = ({ autoPlay = 7000 }) => {
       className="relative h-[85vh] bg-cover bg-center flex items-center justify-center overflow-hidden"
       aria-roledescription="carousel"
       aria-label="Hero carousel"
-                  style={{ backgroundImage: `url('${BACKGROUND_IMAGE}')` }}
+                  style={{ backgroundImage: `url('${current.src}')` }}
 
     >
       {/* Dark overlay */}
