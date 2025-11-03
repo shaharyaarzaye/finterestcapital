@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
+import Footer from '@/components/Footer';
 
 /* --------------------------------------------------------------- */
 /*  Button – solid orange gradient, always visible                */
@@ -22,9 +23,10 @@ const Button = ({ children, href, className = '' }: { children: React.ReactNode;
 /* --------------------------------------------------------------- */
 const PMS: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-linear-to-br from-blue-50 to-indigo-100 text-center">
+    <div className=" text-center">
       {/* Title */}
-      <h1 className="text-5xl md:text-6xl font-extrabold text-orange-950 drop-shadow-sm mb-6">
+      <div className="max-w-3xl mx-auto py-20 flex flex-col items-center">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-orange-950 drop-shadow-sm mb-6">
         Coming Soon
       </h1>
 
@@ -48,6 +50,8 @@ const PMS: React.FC = () => {
               <Button href='#'>Stay Updated</Button>
             </div>
       </div>
+      </div>
+      <Footer/>
     </div>
   );
 };
