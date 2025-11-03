@@ -6,7 +6,7 @@ import {
   Check, ArrowUpRight, Phone, Mail, MapPin, Menu, ChevronRight, Star as StarIcon,
   TrendingUp, DollarSign, Shield, Zap, BarChart3, Target, AlertTriangle,
   Package, AlertCircle, Network, ArrowRight, User, Box, Rocket, Tag, CalendarCheck,
-  Download
+  Download , X
 } from 'lucide-react';
 
 // ---------------------------------------------------------------
@@ -120,8 +120,8 @@ const CoreInvestmentProduct = () => (
       <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-center text-gray-900 mb-12">THINGS WE AVOID IN OUR INVESTMENTS:</motion.h2>
       <div className="max-w-4xl mx-auto space-y-2">
         {['Corporate Governance Issues', 'Highly Pledged', 'Expensive Valuations', "Sectors Which We Don't Understand", 'Daily Stock Price Movements', 'High Leveraged Balance Sheet', 'No Business Growth Visibility Over 2 Years'].map((avoid, i) => (
-          <motion.div key={i} variants={fadeInUp} className={`px-6 py-4 rounded-lg font-medium text-gray-800 ${i % 2 === 0 ? 'bg-gray-100' : 'bg-gray-200'}`}>
-            {avoid}
+          <motion.div key={i} variants={fadeInUp} className={`px-6 py-4 rounded-lg flex  gap-3 font-medium text-gray-800 ${i % 2 === 0 ? 'bg-gray-100' : 'bg-gray-200'}`}>
+          <X color="red"/>  {avoid}
           </motion.div>
         ))}
       </div>

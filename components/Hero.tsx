@@ -6,34 +6,40 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface Slide {
   tagline?: string;
   title: string;
+  src? : string;
   subtitle: string;
 }
 
 const BACKGROUND_IMAGE =
-  'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop';
+  '/Crousel-img/image.png';
 
 const slides: Slide[] = [
   {
-    tagline: 'WELCOME! START GROWING YOUR BUSINESS TODAY',
-    title: 'Impressive Solutions<br />Crafted for Your Goal',
+    title: 'Built on research,<br/> Driven by conviction.',
+    src: 'Crousel-img/Image.png',
     subtitle:
-      'We specialize in delivering impressive, results-driven solutions tailored to your unique goals. Whether you\'re scaling a startup.',
+      'Welcome to Finterest Capital',
   },
   {
-    tagline: 'INVEST SMARTER • GROW FASTER',
-    title: 'Unlock Wealth with Precision & Performance',
+    title: 'Insight Begins with Research.',
+        src: 'Crousel-img/Image2.jpeg',
+
     subtitle:
-      'Empowering Ambitious Investors to Create Real Wealth, The Smarter Way. Driven by deep research, market foresight, and proven strategies, Finterest Capital is where tomorrow’s leaders invest today. Our unique approach blends momentum, value, and discovery to seize opportunities others miss—delivering compound growth and capital safety.',
+      'We study businesses in depth — their numbers, management, and industry dynamics — to uncover clarity where most see complexity. Every idea starts with understanding.',
   },
   {
-    title: 'Content Needed',
+    title: 'Strategy that Stays Ahead.',
+        src: 'Crousel-img/Image1.jpeg',
+
     subtitle:
-      'With every move backed by forensic analytics and decades of domain expertise, we don’t just help you grow wealth—we help you build a legacy.',
+      'We combine valuation awareness, earnings triggers, and disciplined allocation to build strategies that adapt through cycles and create long-term advantage.',
   },
   {
-    title: 'Content Needed',
+    title: ' Wealth Built on Conviction.',
+        src: 'Crousel-img/Image3.jpeg',
+
     subtitle:
-      'Experience data-driven, opportunity-focused investing for India’s new-age markets. At Finterest Capital, growing and safeguarding your money isn’t just our job—it’s our conviction.',
+      'Our portfolios reflect belief backed by research. Steady compounding, smart risk-taking, and clear execution — that’s how conviction turns into wealth.',
   },
 ];
 
@@ -111,9 +117,10 @@ export const Hero: React.FC<{ autoPlay?: number }> = ({ autoPlay = 7000 }) => {
   return (
     <section
       className="relative h-[85vh] bg-cover bg-center flex items-center justify-center overflow-hidden"
-      style={{ backgroundImage: `url('${BACKGROUND_IMAGE}')` }}
       aria-roledescription="carousel"
       aria-label="Hero carousel"
+                  style={{ backgroundImage: `url('${BACKGROUND_IMAGE}')` }}
+
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50" />
@@ -131,6 +138,7 @@ export const Hero: React.FC<{ autoPlay?: number }> = ({ autoPlay = 7000 }) => {
               animate="center"
               exit="exit"
               className="w-full text-center space-y-4"
+
             >
               {/* Tagline */}
               {current.tagline && (
