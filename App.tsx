@@ -12,6 +12,7 @@ import PMS from './views/PMS';
 import {AboutUsPage} from './views/AboutUsPage';
 import Home from './views/Home';
 import Research from './views/Research';
+import InvestmentBanking from './views/InvestmentBanking';
 
 const App: React.FC = () => {
   const [chatOpen, setChatOpen] = useState(false);
@@ -78,6 +79,7 @@ const App: React.FC = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/research" element={<Research />} />
+          <Route path="/investmentbanking" element={<InvestmentBanking/>} />
         </Routes>
       </div>
     </Router>
