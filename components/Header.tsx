@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Logo: React.FC = () => (
   <div className="flex items-center gap-2">
     <img
       src="/logo-dark.png"
+      alt="Logo"
       className="h-14 rounded-md flex items-center justify-center font-bold text-white text-2xl p-1 shrink-0"
     />
   </div>
@@ -15,7 +16,8 @@ const Header: React.FC = () => {
   const [isResearchOpen, setIsResearchOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  // Handle scroll for sticky header effect
+  React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -24,7 +26,7 @@ const Header: React.FC = () => {
   }, []);
 
   // Close dropdown when clicking outside
-  useEffect(() => {
+  React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsResearchOpen(false);
@@ -35,33 +37,19 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { Text: 'Home', src: '/' },
-    { Text: 'PMS', src: '/pms' },
-    { Text: 'Investment Banking', src: '/investmentbanking' },
-    { Text: 'Investor Relations', src: '/investorrelations' },
-    { Text: 'About', src: '/about' },
-    { Text: 'Contact', src: '/contact' },
+    { Text: 'Home', to: '/' },
+    { Text: 'PMS', to: '/pms' },
+    { Text: 'Investment Banking', to: '/investmentbanking' },
+    { Text: 'Investor Relations', to: '/investorrelations' },
+    { Text: 'About', to: '/about' },
+    { Text: 'Contact', to: '/contact' },
   ];
 
-  const researchDropdown = [
-    { Text: 'Core', hash: '#core' },
-    { Text: 'Momentum', hash: '#momentum' },
-    { Text: 'Microcap', hash: '#microcap' },
+  const researchLinks = [
+    { Text: 'Core', to: '/research/core' },
+    { Text: 'Momentum', to: '/research/momentum' },
+    { Text: 'Microcap', to: '/research/microcap' },
   ];
-
-  const scrollToSection = (hash: string) => {
-    setIsResearchOpen(false);
-    if (window.location.pathname === '/research') {
-      // If already on the research page, scroll to the section
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If not on the research page, navigate to the research page with the hash
-      window.location.href = `/research${hash}`;
-    }
-  };
 
   return (
     <header
@@ -81,7 +69,7 @@ const Header: React.FC = () => {
               Home
             </Link>
 
-            {/* Research with Dropdown */}
+            {/* Research Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onMouseEnter={() => setIsResearchOpen(true)}
@@ -108,18 +96,14 @@ const Header: React.FC = () => {
                   onMouseLeave={() => setIsResearchOpen(false)}
                   className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50"
                 >
-                  {researchDropdown.map((item) => (
-                    <a
-                      key={item.hash}
-                      href={`/research${item.hash}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        scrollToSection(item.hash);
-                      }}
+                  {researchLinks.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
                       className="block px-4 py-2 text-gray-700 hover:bg-brand-orange hover:text-white transition-colors duration-200"
                     >
                       {item.Text}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -128,8 +112,8 @@ const Header: React.FC = () => {
             {/* Other Nav Links */}
             {navLinks.slice(1).map((link) => (
               <Link
-                key={link.src}
-                to={link.src}
+                key={link.to}
+                to={link.to}
                 className="text-gray-600 hover:text-brand-orange transition-colors duration-200 font-medium"
               >
                 {link.Text}
@@ -139,17 +123,18 @@ const Header: React.FC = () => {
 
           <a
             href="#"
-            className="hidden lg:inline-block bg-brand-dark text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+            className="hidden lg:inline-block bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-800 transition-colors duration-300"
           >
-            Get Quote
+            Small Case
           </a>
 
+          {/* Mobile Menu Button */}
           <button className="lg:hidden text-brand-dark">
             <svg
               className="w-6 h-6"
               fill="none"
               stroke="currentColor"
-              viewBox="0 24 24"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />

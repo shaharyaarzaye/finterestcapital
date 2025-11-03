@@ -54,45 +54,6 @@ const Button = ({ children, href, className = '' }: { children: React.ReactNode;
 
 // ---------------------------------------------------------------
 // Header with Real Bull Logo
-// ---------------------------------------------------------------
-const Header = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  return (
-    <header className="bg-white shadow-sm fixed w-full z-50 border-b">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-3">
-          <img src="/bull-logo.png" alt="Finterest Capital" className="w-12 h-12" />
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">FINTEREST CAPITAL</h1>
-            <p className="text-xs text-gray-600 -mt-1">Our Research Your Growth</p>
-          </div>
-        </div>
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#core" className="text-gray-700 hover:text-brand-orange font-medium">Core</a>
-          <a href="#momentum" className="text-gray-700 hover:text-brand-orange font-medium">Momentum</a>
-          <a href="#microcap" className="text-gray-700 hover:text-brand-orange font-medium">Microcap</a>
-          <a href="#contact" className="text-gray-700 hover:text-brand-orange font-medium">Contact</a>
-        </nav>
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <Menu className="w-6 h-6 text-gray-700" />
-        </button>
-      </div>
-      {isOpen && (
-        <motion.nav
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-white border-t px-6 py-4 space-y-3"
-        >
-          <a href="#core" className="block text-gray-700 hover:text-brand-orange font-medium">Core</a>
-          <a href="#momentum" className="block text-gray-700 hover:text-brand-orange font-medium">Momentum</a>
-          <a href="#microcap" className="block text-gray-700 hover:text-brand-orange font-medium">Microcap</a>
-          <a href="#contact" className="block text-gray-700 hover:text-brand-orange font-medium">Contact</a>
-        </motion.nav>
-      )}
-    </header>
-  );
-};
 
 // ---------------------------------------------------------------
 // CORE INVESTMENT PRODUCT
@@ -100,7 +61,7 @@ const Header = () => {
 const CoreInvestmentProduct = () => (
   <Section id="core" className="bg-linear-to-b from-orange-50 via-white to-orange-50 pt-32">
     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center mb-16">
-      <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">CORE INVESTMENT PRODUCT</h1>
+      <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-3">Momentum  PRODUCT</h1>
       <div className="w-32 h-1 bg-linear-to-r from-transparent via-brand-orange to-transparent mx-auto mt-6"></div>
     </motion.div>
 
@@ -207,7 +168,7 @@ const CoreInvestmentProduct = () => (
 // ---------------------------------------------------------------
 // MAIN APP
 // ---------------------------------------------------------------
-const Research: React.FC = () => {
+const Momentum: React.FC = () => {
   // Handle hash-based navigation when the page loads
   useEffect(() => {
     if (window.location.hash) {
@@ -234,4 +195,4 @@ const Research: React.FC = () => {
   );
 };
 
-export default Research;
+export default Momentum;

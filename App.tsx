@@ -11,8 +11,11 @@ import {ContactPage} from './views/ContactPage'
 import PMS from './views/PMS';
 import {AboutUsPage} from './views/AboutUsPage';
 import Home from './views/Home';
-import Research from './views/Research';
+import Research from './views/Core';
 import InvestmentBanking from './views/InvestmentBanking';
+import Momentum from './views/Momentum';
+import Core from './views/Core';
+import Microcap from './views/Microcap';
 
 const App: React.FC = () => {
   const [chatOpen, setChatOpen] = useState(false);
@@ -78,7 +81,9 @@ const App: React.FC = () => {
           <Route path="/pms" element={<PMS />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutUsPage />} />
-          <Route path="/research" element={<Research />} />
+          <Route path="/research/core" element={<Core/>} />
+          <Route path="/research/momentum" element={<Momentum />} />
+          <Route path="/research/microcap" element={<Microcap />} />
           <Route path="/investmentbanking" element={<InvestmentBanking/>} />
         </Routes>
       </div>

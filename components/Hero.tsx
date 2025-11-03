@@ -1,31 +1,169 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-const ChevronLeftIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>;
-const ChevronRightIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>;
+interface Slide {
+  tagline?: string;
+  title: string;
+  subtitle: string;
+}
 
-const Hero: React.FC = () => {
+// Shared background image (same for all slides)
+const BACKGROUND_IMAGE =
+  'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop';
+
+const slides = [
+  // === SLIDE 1: Original (unchanged) ===
+  {
+    tagline: 'WELCOME! START GROWING YOUR BUSINESS TODAY',
+    title: 'Impressive Solutions<br />Crafted for Your Goal',
+    subtitle:
+      'We specialize in delivering impressive, results-driven solutions tailored to your unique goals. Whether you\'re scaling a startup.',
+  },
+
+  // === SLIDE 2: Part 1 ===
+  {
+    tagline: 'INVEST SMARTER • GROW FASTER',
+    title: 'Unlock Wealth with Precision & Performance',
+    subtitle:
+      'Empowering Ambitious Investors to Create Real Wealth, The Smarter Way. Driven by deep research, market foresight, and proven strategies, Finterest Capital is where tomorrow’s leaders invest today. Our unique approach blends momentum, value, and discovery to seize opportunities others miss—delivering compound growth and capital safety.',
+  },
+
+  // === SLIDE 3: Part 2 (No heading → "Content Needed") ===
+  {
+    title: 'Content Needed',
+    subtitle:
+      'With every move backed by forensic analytics and decades of domain expertise, we don’t just help you grow wealth—we help you build a legacy.',
+  },
+
+  // === SLIDE 4: Part 3 (No heading → "Content Needed") ===
+  {
+    title: 'Content Needed',
+    subtitle:
+      'Experience data-driven, opportunity-focused investing for India’s new-age markets. At Finterest Capital, growing and safeguarding your money isn’t just our job—it’s our conviction.',
+  },
+];
+
+const ChevronLeft = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  </svg>
+);
+
+const ChevronRight = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+);
+
+interface HeroProps {
+  autoPlay?: number;
+}
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+export const Hero: React.FC<HeroProps> = ({ autoPlay = 7000 }) => {
+  const [index, setIndex] = useState(0);
+
+  const goPrev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+  const goNext = () => setIndex((i) => (i + 1) % slides.length);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+    const id = setInterval(goNext, autoPlay);
+    return () => clearInterval(id);
+  }, [autoPlay]);
+
+  const current = slides[index];
+
   return (
-    <section className="relative h-[85vh] bg-cover bg-center text-white flex items-center justify-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop')" }}>
-      <div className="absolute inset-0 bg-black/50"></div>
-      
-      <div className="relative z-10 text-center reveal">
-        <p className="text-sm font-semibold uppercase tracking-widest mb-4">WELCOME! START GROWING YOUR BUSINESS TODAY</p>
-        <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
-          Impressive Solutions<br />Crafted for Your Goal
-        </h1>
-        <p className="max-w-2xl mx-auto text-lg text-gray-200">
-          We specialize in delivering impressive, results-driven solutions tailored to your unique goals. Whether you're scaling a startup.
-        </p>
-      </div>
+    <section
+      className="relative h-[85vh] bg-cover bg-center flex items-center justify-center overflow-hidden"
+      style={{ backgroundImage: `url('${BACKGROUND_IMAGE}')` }}
+      aria-roledescription="carousel"
+      aria-label="Hero carousel"
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/50" />
 
-      <button aria-label="Previous slide" className="absolute left-4 md:left-10 z-10 p-3 bg-white/20 rounded-full hover:bg-white/40 transition-colors">
-        <ChevronLeftIcon />
+      {/* Content */}
+      <motion.div variants={fadeInUp} className="relative z-10 text-center px-4 max-w-5xl mx-auto animate-fadeIn">
+        {current.tagline && (
+          <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-gray-200">
+            {current?.tagline}
+          </p>
+        )}
+        <h1
+          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
+          dangerouslySetInnerHTML={{ __html: current.title }}
+        />
+        <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+          {current.subtitle}
+        </p>
+      </motion.div>
+
+      {/* Prev Button */}
+      <button
+        onClick={goPrev}
+        aria-label="Previous slide"
+        className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/20 rounded-full hover:bg-white/40 focus-visible:ring-2 focus-visible:ring-white/70 transition-all"
+      >
+        <ChevronLeft />
       </button>
-      <button aria-label="Next slide" className="absolute right-4 md:right-10 z-10 p-3 bg-white/20 rounded-full hover:bg-white/40 transition-colors">
-        <ChevronRightIcon />
+
+      {/* Next Button */}
+      <button
+        onClick={goNext}
+        aria-label="Next slide"
+        className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/20 rounded-full hover:bg-white/40 focus-visible:ring-2 focus-visible:ring-white/70 transition-all"
+      >
+        <ChevronRight />
       </button>
+
+      {/* Dots Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            aria-current={i === index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i === index ? 'bg-white w-8' : 'bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
     </section>
   );
 };
-
+// At the very bottom of Hero.tsx
 export default Hero;
+/* Fade-in Animation */
+const style = `
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+`;
+if (typeof document !== 'undefined') {
+  const sheet = document.createElement('style');
+  sheet.innerHTML = style;
+  document.head.appendChild(sheet);
+}
