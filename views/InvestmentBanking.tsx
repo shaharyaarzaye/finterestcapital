@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer';
+import { GrowthCapitalBox } from '@/components/GrowthCapitalBox';
 import React from 'react';
 
 const InvestmentBanking: React.FC = () => {
@@ -7,16 +8,25 @@ const InvestmentBanking: React.FC = () => {
       <h1 className="text-5xl text-center md:text-6xl font-bold text-gray-900 mb-3">
         Investment Banking
       </h1>
-      <div className="w-32 h-1 bg-gradient-to-r from-transparent via-brand-orange to-transparent mx-auto mt-6" />
+      <div className="w-32 h-1 bg-linear-to-r from-transparent via-brand-orange to-transparent mx-auto mt-6" />
 
-      <p className="mt-10 text-lg px-20 text-gray-600">
+     <div className="grid md:grid-cols-2 gap-20 items-center px-10">
+      <div>
+         
+      <p className="mt-10 text-lg px-10 text-gray-600">
         At our Investment Banking Division, we specialize in driving growth for NSE and BSE-listed companies through Growth Capital Raising, Debt Syndication, and Value-driven Financial Advisory. Our team brings deep market insight and strong investor networks to structure and execute funding solutions that align with each company’s stage of growth and long-term vision. We work closely with promoters and management teams to unlock capital efficiency and accelerate expansion.
       </p>
 
-      <p className="mt-10 text-lg px-20 pb-10 text-gray-600">
+      <p className="mt-10 text-lg px-10 pb-10 text-gray-600">
         Beyond fundraising, our expertise extends to comprehensive valuation consultancy, transaction structuring, and corporate advisory across sectors. We combine analytical precision with an entrepreneurial approach, ensuring our clients receive tailored, execution-ready strategies in every engagement. From sourcing equity investors to optimizing debt portfolios, we deliver investment banking services designed to create enduring shareholder value.
       </p>
 
+      </div>
+      <div>
+                   <GrowthCapitalBox />
+
+      </div>
+     </div>
       {/* Animated Logo Marquee */}
       {/* ==== Animated Logo Marquee – NO OVERLAP ==== */}
 <div className="overflow-hidden bg-gray-50 py-10 mt-10 mb-20">
@@ -42,7 +52,6 @@ const InvestmentBanking: React.FC = () => {
     </div>
   </div>
 </div>
-
       <Footer />
     </div>
   );
