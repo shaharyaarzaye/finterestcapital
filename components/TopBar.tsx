@@ -29,7 +29,6 @@ const TopBar: React.FC = () => {
                     <div className="flex items-center space-x-4">
                         <a href="#" className="hover:text-brand-orange">Company News</a>
                         <a href="#" className="hover:text-brand-orange">Faq</a>
-                        <a href="#" className="hover:text-brand-orange">Contact</a>
                         <span className="text-gray-300">|</span>
                         <div className="flex items-center space-x-3">
                            <a href="https://x.com/FinterestC" aria-label="Twitter"><XIcon/></a>

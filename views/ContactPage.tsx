@@ -54,29 +54,29 @@ export const ContactPage: React.FC = () => {
                             <div className="flex items-start space-x-4">
                                 <div className="mt-1"><LocationIcon /></div>
                                 <div>
-                                    <h3 className="font-semibold text-primary">Our Studio</h3>
-                                    <p className="text-secondary">123 Design Avenue, Suite 100<br />Metropolis, 10101</p>
+                                    <h3 className="font-semibold text-primary">Our Location</h3>
+                                    <p>Finterest Capital, G12-14, <br /> Commerce Center, <br /> Tardeo,   Mumbai - 400034</p>
                                 </div>
                             </div>
                              <div className="flex items-start space-x-4">
                                 <div className="mt-1"><CollaborationIcon /></div>
                                 <div>
                                     <h3 className="font-semibold text-primary">Partnerships</h3>
-                                    <p className="text-secondary hover:text-primary transition-colors"><a href="mailto:partners@venera.com">partners@venera.com</a></p>
+                                    <p className="text-secondary hover:text-primary transition-colors"><a href="Sales@finterestcapital.com">Sales@finterestcapital.com</a></p>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-4">
                                 <div className="mt-1"><EmailIcon /></div>
                                 <div>
                                     <h3 className="font-semibold text-primary">General Inquiries</h3>
-                                    <p className="text-secondary hover:text-primary transition-colors"><a href="mailto:hello@venera.com">hello@venera.com</a></p>
+                                    <p className="text-secondary hover:text-primary transition-colors"><a href="mailto:Info@finterestcapital.com">Info@finterestcapital.com</a></p>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-4">
                                <div className="mt-1"><PhoneIcon /></div>
                                 <div>
                                     <h3 className="font-semibold text-primary">Customer Support</h3>
-                                    <p className="text-secondary hover:text-primary transition-colors"><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                                    <p className="text-secondary hover:text-primary transition-colors"><a href="tel:+919987111634">+91 99871 11634</a></p>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ export const ContactPage: React.FC = () => {
                                     <select id="inquiry" name="inquiry" required className="block w-full px-4 py-3 border border-border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition bg-white">
                                         <option>General Question</option>
                                         <option>Order Support</option>
-                                        <option>Design Collaboration</option>
+                                        <option>Portfolio Audit</option>
                                         <option>Press Inquiry</option>
                                     </select>
                                 </div>
@@ -111,7 +111,7 @@ export const ContactPage: React.FC = () => {
                                     <textarea id="message" name="message" rows={5} required className="block w-full px-4 py-3 border border-border rounded-md shadow-sm placeholder-accent focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"></textarea>
                                 </div>
                                 <div>
-                                    <button type="submit" disabled={status === 'submitting'} className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-accent transition-colors">
+                                    <button type="submit" disabled={status === 'submitting'} className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-orange hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-accent transition-colors">
                                         {status === 'submitting' ? 'Sending...' : 'Send Message'}
                                     </button>
                                 </div>

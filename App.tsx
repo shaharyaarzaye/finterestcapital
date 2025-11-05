@@ -40,7 +40,7 @@ const App: React.FC = () => {
 
           {/* WhatsApp Button */}
           <a
-            href="https://wa.me/1234567890" // Replace with your number
+            href="https://wa.me/919987111634" // Replace with your number
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#25D366] hover:bg-[#1EBE5C] text-white p-4 rounded-full shadow-lg transition flex items-center justify-center"

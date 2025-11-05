@@ -33,13 +33,14 @@ const Contact: React.FC = () => {
                         <h2 className="text-4xl font-bold text-brand-text mb-8">Contact Us</h2>
                         <div className="space-y-8">
                             <ContactInfoItem title="Call Us 24/7" icon={<PhoneIcon/>}>
-                                <a href="tel:+25621452156" className="hover:text-brand-orange">(+256) 2145.2156</a>
+                                <a href="tel:+919987111634" className="hover:text-brand-orange">+91 99871 11634</a>
                             </ContactInfoItem>
                              <ContactInfoItem title="Work with us" icon={<MailIcon/>}>
-                                <a href="mailto:info@invena.com" className="hover:text-brand-orange">info@invena.com</a>
+                                <a href="Sales@finterestcapital.com" className="hover:text-brand-orange">Sales@finterestcapital.com</a> <br />
+                                <a href="Info@finterestcapital.com" className="hover:text-brand-orange">Info@finterestcapital.com</a>
                             </ContactInfoItem>
                              <ContactInfoItem title="Our Location" icon={<LocationIcon/>}>
-                                <p>125 Town, United State</p>
+                                <p>Finterest Capital, G12-14, <br /> Commerce Center, <br /> Tardeo,   Mumbai - 400034</p>
                             </ContactInfoItem>
                         </div>
                     </div>
