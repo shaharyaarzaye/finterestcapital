@@ -28,7 +28,7 @@ function Home() {
         <Team />
         <Testimonial />
         <Quote />
-        <Blog />
+        {/* <Blog /> */}
         <Contact />
       </main>
       <Footer/>
