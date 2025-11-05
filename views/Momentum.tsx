@@ -73,15 +73,14 @@ const CoreInvestmentProduct = () => (
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {[
-          { title: 'Value Investing', desc: 'It is a strategy where we buy the best businesses which are undervalued by the market participants or the value of a stock is set to expand looking at the upcoming growth triggers in near future.' },
-          { title: 'Momentum Investing', desc: 'It is a special strategy we combine with value investing where we buy businesses at the best price at the best time dictated by long term technical trends. We believe, long term sectoral technical breakouts give a direction to look at immediate compoundable sectors.', example: true },
-          { title: 'Capital Protection', desc: '“Return of Capital” is as important as “Return on Capital”. We lay more emphasis on the downside risk than the expected return.', highlight: true },
+          { title: '1. Earnings Breakout', desc: 'We focus on companies showing sustainable quarterly earnings growth — ideally 40–50% QoQ. Consistent earnings surprises and margin expansion act as primary catalysts for price momentum and institutional buying.' },
+          { title: '2. Technical Strength', desc: 'Momentum thrives when price action and volume confirm underlying fundamentals. We track sectoral breakouts, multi-year highs, and key EMA crossovers to identify technically strong setups supported by market participation.', example: true },
+          { title: '3. Change & Disruption', desc: 'We seek businesses undergoing transformational changes such as new management, innovative products, capacity expansion, or structural industry shifts. These catalysts often trigger long-term re-ratings and sustained momentum.' },
         ].map((item, i) => (
-          <motion.div key={i} variants={fadeInUp} className={`relative bg-white rounded-3xl p-8 shadow-xl border ${item.highlight ? 'border-brand-orange' : 'border-gray-200'}`}>
+          <motion.div key={i} variants={fadeInUp} className={`relative bg-white rounded-3xl p-8 shadow-xl border`}>
             <div className="absolute -top-4 left-8 bg-brand-orange text-white px-4 py-1 rounded-full text-sm font-semibold">{item.title}</div>
             <div className="mt-6 space-y-3">
               <p className="text-gray-700 leading-relaxed">{item.desc}</p>
-              {item.example && <p className="text-brand-orange font-medium italic">Eg: Pharma sector in April & IT sector in June.</p>}
             </div>
           </motion.div>
         ))}
@@ -137,8 +136,8 @@ const CoreInvestmentProduct = () => (
             {[
               ['Diversification', 'Diversified into multiple sectors'],
               ['Target Market Cap', 'Multi-cap'],
-              ['Time Horizon', '6-8 qtrs'],
-              ['Number of stocks (annually)', '15-20'],
+              ['Time Horizon', '2-3  qtrs'],
+              ['Number of stocks (annually)', '25 - 30'],
               ['Exit calls to be provided', ''],
               ['Recommended Max Exposure to a stock', 'upto 10%'],
               ['Benchmark', 'BSE 500'],

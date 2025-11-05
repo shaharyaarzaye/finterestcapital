@@ -74,15 +74,14 @@ const CoreInvestmentProduct = () => (
 
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {[
-          { title: 'Out of the box Investing ', desc: 'Catch those companies which are unheard and stay away from market limelight' },
-          { title: 'Minimise Risk', desc: 'Filter proven management background, earnings visibility and scalable business potential', example: true },
-          { title: 'Diversification', desc: 'Overall Coverage of all sectors with optimum allocation', highlight: true },
+          { title: '1. Out-of-the-Box Identification', desc: 'We actively look beyond the obvious names. This means scouting companies that are under-researched, under-owned, or operating in niche pockets where the broader market hasn’t shown interest yet.The goal is to spot potential leaders before they become mainstream.' },
+          { title: '2. Risk-Conscious Selection', desc: 'Every company we shortlist goes through a strict evaluation of: Promoter quality Earnings visibility Scalability of business model', example: true },
+          { title: '3. Meaningful Diversification', desc: 'We build a basket. Not a bet. The portfolio is diversified across sectors and themes to balance upside potential with downside protection. Allocation is done thoughtfully to avoid concentration risk.'},
         ].map((item, i) => (
-          <motion.div key={i} variants={fadeInUp} className={`relative bg-white rounded-3xl p-8 shadow-xl border ${item.highlight ? 'border-brand-orange' : 'border-gray-200'}`}>
+          <motion.div key={i} variants={fadeInUp} className={`relative bg-white rounded-3xl p-8 shadow-xl border `}>
             <div className="absolute -top-4 left-8 bg-brand-orange text-white px-4 py-1 rounded-full text-sm font-semibold">{item.title}</div>
             <div className="mt-6 space-y-3">
               <p className="text-gray-700 leading-relaxed">{item.desc}</p>
-              {item.example && <p className="text-brand-orange font-medium italic">Eg: Pharma sector in April & IT sector in June.</p>}
             </div>
           </motion.div>
         ))}
@@ -138,8 +137,8 @@ const CoreInvestmentProduct = () => (
             {[
               ['Diversification', 'Diversified into multiple sectors'],
               ['Target Market Cap', 'Multi-cap'],
-              ['Time Horizon', '6-8 qtrs'],
-              ['Number of stocks (annually)', '15-20'],
+              ['Time Horizon', '6-12 qtrs'],
+              ['Number of stocks (annually)', '12-15'],
               ['Exit calls to be provided', ''],
               ['Recommended Max Exposure to a stock', 'upto 10%'],
               ['Benchmark', 'BSE 500'],
