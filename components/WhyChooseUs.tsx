@@ -1,13 +1,13 @@
 import React from 'react';
 
 // FIX: Added explicit types for props to resolve TypeScript errors.
-const FeatureCard = ({ number, title, children, highlighted = false }: { number: string, title: string, children: React.ReactNode, highlighted?: boolean }) => (
-    <div className={`p-8 rounded-xl transition-all duration-300 transform hover:-translate-y-2 ${highlighted ? 'bg-brand-orange text-white shadow-2xl' : 'bg-white text-brand-text hover:shadow-xl'}`}>
-        <span className={`text-5xl font-bold ${highlighted ? 'text-white/50' : 'text-brand-orange/20'}`}>
+const FeatureCard = ({ number, title, children, }: { number: string, title: string, children: React.ReactNode }) => (
+    <div className={`p-8 hover:bg-brand-orange border boarder-brand-orange hover:text-white shadow-2xl rounded-xl transition-all duration-300 transform hover:-translate-y-2 $`}>
+        <span className={`text-5xl font-bold `}>
             {number}
         </span>
         <h3 className="text-2xl font-bold mt-4 mb-3">{title}</h3>
-        <p className={`${highlighted ? 'text-white/90' : 'text-gray-500'}`}>{children}</p>
+        <p >{children}</p>
     </div>
 );
 
@@ -26,7 +26,7 @@ const WhyChooseUs: React.FC = () => {
                         <FeatureCard number="01" title="Strategic and Diversified Portfolio Selection">
                            We blend top-down sector analysis with bottom-up stock picking to create a balanced and high-conviction portfolio that adapts to evolving market dynamics.
                         </FeatureCard>
-                        <FeatureCard number="02" title="Disciplined Entry and Exit Strategy" highlighted>
+                        <FeatureCard number="02" title="Disciplined Entry and Exit Strategy" >
                            Every recommendation is backed by clear valuation metrics and catalysts - ensuring optimal timing for both investment entry and profit booking.
                         </FeatureCard>
                     </div>
