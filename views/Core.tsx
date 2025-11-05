@@ -155,7 +155,7 @@ const CoreInvestmentProduct = () => (
           </tbody>
         </table>
         <div className="p-6  rounded-b-2xl text-center">
-          <Button href="#" className="text-lg px-8 mr-2 py-4">Download Broshure <Download className="ml-2 w-5 h-5" /></Button>
+          <Button href="#" className="text-lg px-8 mr-2 py-4">Download Brochure <Download className="ml-2 w-5 h-5" /></Button>
           <Button href="/contact" className="text-lg px-8 py-4">Get Started Now <ArrowUpRight className="ml-2 w-5 h-5" /></Button>
         </div>
       </Card>

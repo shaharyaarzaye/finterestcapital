@@ -20,12 +20,10 @@ const Vision: React.FC = () => {
                            </p>
                         </div>
                         <div className="mt-10 flex items-center gap-8">
-                            <a href="#" className="bg-brand-orange text-white font-semibold py-4 px-8 rounded-lg hover:bg-brand-orange-dark transition-transform duration-300 transform hover:scale-105">
-                                Book A consultation
+                            <a href="https://drive.google.com/file/d/1OncbmceX-SJO08t9mn6ZCWjcnkhZfoNw/view?usp=sharing" className="bg-brand-orange text-white font-semibold py-4 px-8 rounded-lg hover:bg-brand-orange-dark transition-transform duration-300 transform hover:scale-105">
+                                Download PDF
                             </a>
-                            <div>
-                                <p className="font-bold text-lg italic text-brand-text" style={{fontFamily: "'Brush Script MT', cursive"}}>Jonathon Doe</p>
-                            </div>
+
                         </div>
                     </div>
                     <div className="reveal">

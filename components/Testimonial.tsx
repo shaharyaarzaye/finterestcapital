@@ -78,7 +78,7 @@ const Testimonial: React.FC = () => {
                     <span className="inline-block px-4 py-1.5 bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-widest rounded-full">
                         Trusted by Investors
                     </span>
-                    <h2 className="mt-4 text-4xl md:text-5xl font-extrabold text-brand-text bg-clip-text text-transparent bg-linear-to-r from-brand-brown to-brand-orange">
+                    <h2 className="mt-4 text-4xl md:text-5xl font-extrabold bg-clip-text text-black bg-linear-to-r from-brand-brown to-brand-orange">
                         Real Results, Real Voices
                     </h2>
                     <p className="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">

@@ -12,9 +12,9 @@ const PricingCard = ({ plan, price, description, link, features, highlighted = f
             <span className="text-5xl font-bold text-brand-text">₹{price}</span>
             <span className="text-gray-500">/year</span>
         </div>
-        <Link to={link} className={`w-full text-center font-semibold py-3 rounded-lg border-2 transition-colors duration-300 ${highlighted ? 'bg-brand-orange border-brand-orange text-white hover:bg-brand-orange-dark hover:border-brand-orange-dark' : 'bg-transparent border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white'}`}>
+        <a href={link} className={`w-full text-center font-semibold py-3 rounded-lg border-2 transition-colors duration-300 ${highlighted ? 'bg-brand-orange border-brand-orange text-white hover:bg-brand-orange-dark hover:border-brand-orange-dark' : 'bg-transparent border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white'}`}>
             Learn More
-        </Link>
+        </a>
         <ul className="mt-8 space-y-4 text-sm text-gray-600 grow">
             {features.map((feature, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -39,7 +39,7 @@ const Pricing: React.FC = () => {
                 <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto mt-16 text-left">
                     <PricingCard
                         plan="Core"
-                        price="49"
+                        price="29,999"
                         description="We focus on building your wealth over time by investing in businesses with solid fundamentals and strong moat."
                         link="/research/core"
                         features={[
@@ -50,7 +50,7 @@ const Pricing: React.FC = () => {
                     />
                     <PricingCard
                         plan="Momentum"
-                        price="69"
+                        price="24,999"
                         description="Short-term trading ideas powered by Technical Analysis, Price Action, Earnings Breakouts, and Sector Rotation."
                         link="/research/momentum"
 
@@ -63,7 +63,7 @@ const Pricing: React.FC = () => {
                     />
                     <PricingCard
                         plan="Microcap"
-                        price="99"
+                        price="27,999"
                         description="Identifying under-the-radar companies with the potential to become market leaders and attract institutional buying."
                         link="/research/microcap"
 
